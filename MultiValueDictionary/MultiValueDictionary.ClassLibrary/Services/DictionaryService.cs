@@ -51,12 +51,20 @@ namespace MultiValueDictionary.ClassLibrary.Services
 
         public List<string> GetAllKeysAndValues()
         {
-            return _dictionaryRepository.GetAllKeysAndValues();
+            if (GetAllKeys().Count != 0)
+            {
+                return _dictionaryRepository.GetAllKeysAndValues();
+            }
+            return new List<string>();
         }
 
         public List<string> GetAllMembers()
         {
-            return _dictionaryRepository.GetAllMembers();
+            if (GetAllKeys().Count != 0)
+            {
+                return _dictionaryRepository.GetAllMembers();
+            }
+            return new List<string>();
         }
 
         public List<string> GetAllMembersOfAKey(string key)
